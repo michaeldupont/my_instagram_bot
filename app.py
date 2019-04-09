@@ -6,9 +6,19 @@ MyApp = Flask(__name__)
 
 @MyApp.route("/")
 def hello():
-	print("login success ! ")
-	data = "bonjour mike"
-	api = InstagramAPI("instamike59.officiel", "")
+	
+	return render_template('index.html')
+
+@MyApp.route('/data')
+def data():
+	with open('config.json', 'r') as f:
+    	config = json.load(f)
+
+	user = config['INSTAGRAM']['USER']
+	pwd = config['INSTAGRAM']['PASSWORD']
+
+
+	api = InstagramAPI(user, pwd)
 	if (api.login()):
         	api.getSelfUserFeed()  # get self user feed
         	data = api.LastJson
@@ -18,11 +28,6 @@ def hello():
                 	f.write(json.dumps(data, indent=4))
 	else:
         	print("Can't login!")
-
-	return render_template('index.html')
-
-@MyApp.route('/data')
-def data():
 	return render_template('index.html')
 
 @MyApp.route('/bytel')
