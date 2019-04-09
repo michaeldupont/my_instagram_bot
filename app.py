@@ -24,7 +24,7 @@ def data():
         	data = api.LastJson
         	print (type(data))
         	json.dumps(data, indent=4)
-        	with open('data.json', 'w') as f:
+        	with open('data1.json', 'w') as f:
                 	f.write(json.dumps(data, indent=4))
 	else:
         	print("Can't login!")
