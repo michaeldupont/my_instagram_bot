@@ -8,7 +8,7 @@ MyApp = Flask(__name__)
 def hello():
 	print("login success ! ")
 	data = "bonjour mike"
-	api = InstagramAPI("instamike59.officiel", "091h1scd")
+	api = InstagramAPI("instamike59.officiel", "")
 	if (api.login()):
         	api.getSelfUserFeed()  # get self user feed
         	data = api.LastJson
