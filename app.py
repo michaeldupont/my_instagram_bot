@@ -21,7 +21,6 @@ def data():
 	if (api.login()):
 		api.getSelfUserFeed()  # get self user feed
 		data = api.LastJson
-        print (type(data))
     	json.dumps(data, indent=4)
        	with open('data1.json', 'w') as f:
 			f.write(json.dumps(data, indent=4))
