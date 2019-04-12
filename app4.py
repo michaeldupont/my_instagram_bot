@@ -1,12 +1,15 @@
 from flask import Flask, render_template
 from InstagramAPI import InstagramAPI
 import json
+import pandas as pd
 
 MyApp = Flask(__name__)
 
 @MyApp.route("/")
 def hello():
-    return render_template("index.html")
+    user = {"username": conf["INSTAGRAM"]["USER"]}
+
+    return render_template("index.html", user=user)
 
 @MyApp.route("/data")
 def data():
