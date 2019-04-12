@@ -21,6 +21,7 @@ def data():
         data1 = api.LastJson
         with open("data1.json", "w") as f:
             f.write(json.dumps(data1, indent=4))
+            #test sur git branche de test
         
     return render_template("index.html")
 
