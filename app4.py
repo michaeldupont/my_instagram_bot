@@ -7,6 +7,8 @@ MyApp = Flask(__name__)
 
 @MyApp.route("/")
 def hello():
+    with open("config.json","r") as fichier:
+        conf = json.load(fichier)
     user = {"username": conf["INSTAGRAM"]["USER"]}
 
     return render_template("index.html", user=user)
