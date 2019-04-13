@@ -9,9 +9,9 @@ MyApp = Flask(__name__)
 def hello():
     with open("config.json","r") as fichier:
         conf = json.load(fichier)
-    user = {"username": conf["INSTAGRAM"]["USER"]}
+    username = conf["INSTAGRAM"]["USER"]
 
-    return render_template("index.html", user=user)
+    return render_template("index.html", user=username)
 
 @MyApp.route("/data")
 def data():
