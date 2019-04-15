@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from InstagramAPI import InstagramAPI
 import json
-import fonctions
+from fonctions import *
 
 MyApp = Flask(__name__)
 
