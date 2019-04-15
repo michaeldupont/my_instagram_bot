@@ -14,6 +14,11 @@ def hello():
     username = username()
     return render_template("index.html", user=username)
 
+@MyApp.route('/user/<username>')
+def show_user_profile(username):
+    # show the user profile for that user
+    return 'User %s' % username
+
 @MyApp.route("/data")
 def data():
     with open("config.json","r") as fichier:
