@@ -4,14 +4,11 @@ import json
 
 MyApp = Flask(__name__)
 
-def username():
-    with open("config.json","r") as fichier:
-        conf = json.load(fichier) 
-    return conf["INSTAGRAM"]["USER"]
-
 @MyApp.route("/")
 def hello():
-    username = username()
+    with open("config.json","r") as fichier:
+        conf = json.load(fichier) 
+    username = conf["INSTAGRAM"]["USER"]
     return render_template("index.html", user=username)
 
 @MyApp.route("/data")
