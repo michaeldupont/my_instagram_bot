@@ -4,19 +4,21 @@ import json
 
 MyApp = Flask(__name__)
 
+def username():
+    with open("config.json","r") as fichier:
+        conf = json.load(fichier) 
+    return conf["INSTAGRAM"]["USER"]
+
 @MyApp.route("/")
 def hello():
-    with open("config.json","r") as fichier:
-        conf = json.load(fichier)
-    username = conf["INSTAGRAM"]["USER"]
-
+    username = username()
     return render_template("index.html", user=username)
 
 @MyApp.route("/data")
 def data():
     with open("config.json","r") as fichier:
         conf = json.load(fichier)
-    user = conf["INSTAGRAM"]["USER"]
+    user = username()
     pwd = conf["INSTAGRAM"]["PASSWORD"]
     api = InstagramAPI(user,pwd)
 
