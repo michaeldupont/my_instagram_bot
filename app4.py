@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from InstagramAPI import InstagramAPI
 import json
-import fonctions
+import fonctions as F
 
 MyApp = Flask(__name__)
 
@@ -37,7 +37,7 @@ def data():
 @MyApp.route("/bytel")
 def MediaData():
     url = "https://www.instagram.com/p/BwINXWmH_1G/"
-    mediaID = get_media_id(url)
+    mediaID = F.get_media_id(url)
 
     return render_template("index.html")
 
