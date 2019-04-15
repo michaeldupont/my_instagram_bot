@@ -37,7 +37,7 @@ def data():
 @MyApp.route("/bytel")
 def MediaData():
     url = "https://www.instagram.com/p/BwINXWmH_1G/"
-    mediaID = fonctions.get_media_id(url)
+    mediaID = get_media_id(url)
 
     return render_template("index.html")
 
