@@ -1,7 +1,6 @@
 from flask import Flask, render_template
 from InstagramAPI import InstagramAPI
 import json
-import pandas as pd
 
 MyApp = Flask(__name__)
 
